@@ -5,7 +5,13 @@ import streamlit as st
 
 st.title("🩺 Diabetes Risk Predictor")
 
-model = joblib.load("model.pkl")
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model_path = os.path.join(BASE_DIR, "model.pkl")
+
+model = joblib.load(model_path)
 imputer = joblib.load("imputer.pkl")
 feature_names = joblib.load("feature_names.pkl")
 zero_cols = joblib.load("zero_cols.pkl")
